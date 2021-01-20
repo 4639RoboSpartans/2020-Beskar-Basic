@@ -7,7 +7,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.SPI.Port;
-import edu.wpi.first.wpilibj.SlewRateLimiter;
+//import edu.wpi.first.wpilibj.SlewRateLimiter;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
@@ -27,8 +27,8 @@ public class DrivetrainSys extends SubsystemBase {
 	private final AHRS navx;
 	private final DifferentialDriveOdometry odometry;
 	private final DifferentialDrive drive;
-	private final SlewRateLimiter limiter1 = new SlewRateLimiter(5);
-	private final SlewRateLimiter limiter2 = new SlewRateLimiter(5);
+//	private final SlewRateLimiter limiter1 = new SlewRateLimiter(5);
+//	private final SlewRateLimiter limiter2 = new SlewRateLimiter(5);
 
 	public DrivetrainSys() {
 		this.navx = new AHRS(Port.kMXP);
@@ -57,7 +57,7 @@ public class DrivetrainSys extends SubsystemBase {
 		drive.setSafetyEnabled(false);
 	}
 
-	public void setNeutralMode(NeutralMode mode) {
+	public void setNeutralMode(final NeutralMode mode) {
 		frontLeft.setNeutralMode(mode);
 		backLeft.setNeutralMode(mode);
 		frontRight.setNeutralMode(mode);
@@ -68,7 +68,7 @@ public class DrivetrainSys extends SubsystemBase {
 		return odometry.getPoseMeters();
 	}
 
-	public void arcadeDrive(double speed, double rotation) {
+	public void arcadeDrive(final double speed, final double rotation) {
 		drive.arcadeDrive(speed, rotation);
 	}
 
